@@ -5,8 +5,6 @@ import java.util.List;
 
 public class StringCalculator {
 
-    private static final String DELIMITER = "[\n, ]";
-
     public static int add(String numbers) {
         if (numbers.isEmpty()) {
             return 0;
