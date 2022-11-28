@@ -1,0 +1,65 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[paper=a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hhline}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{verbatimbox}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{wasysym}
+
+\newcounter{aufgabenzaehler}
+\setcounter{aufgabenzaehler}{1}
+
+\newcommand{\aufgabe}[1]{\subsection*{\theaufgabenzaehler. Anforderung}#1\stepcounter{aufgabenzaehler}}
+%\newcommand{\aufgabe}[1]{\subsubsection*{\theaufgabenzaehler. Aufgabe}#1\subsubsection*{Lösung:}\stepcounter{aufgabenzaehler}}
+
+\pagestyle{fancy}
+\lhead{GBS Schulen}
+\chead{Übungsblatt \texttt{JUnit}}
+\rhead{\today}
+\lfoot{} \cfoot{\pagemark} \rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+    \thispagestyle{plain}
+    \flushleft \textbf{ARS Computer und Consulting GmbH}
+    \hfill München, \today\\
+    Andreas Maier\\
+    andreas.maier@ars.de
+    \begin{center}
+        \Large{\textbf{Übungsblatt\
+        \textbf{Test Driven Development}}}
+    \end{center}
+    In dieser Übung sollen Sie eine Klasse mit der dazugehörigen Testklasse entwickeln. Gegeben sind die nachfolgenden Anforderungen. Erstellen Sie immer zuerst den Test und dann die Implementierung für die jeweilige Anforderung.\\
+    Erstellen Sie die Klasse \texttt{StringCalculatorTest} und sowie die Klasse \texttt{StringCalculator}.
+    \aufgabe{
+        Erstellen Sie eine Klassenmethode \texttt{int add(String numbers)}. Diese Methode kann 0, 1 oder 2 Zahlen entgegennehmen und soll deren Summe zurückgeben. Wenn eine leere Zeichenkette übergeben wird, soll 0 zurückgegeben werden. Beispiel: \texttt{\dq\dq}  oder \texttt{"1"} oder \texttt{"1,2"}. Das Trennzeichen ist ein Komma.
+    }
+    \aufgabe{
+        Erlauben Sie, dass die Methode \texttt{add} beliebig viele Zahlen entgegennehmen kann.
+    }
+
+    \aufgabe{
+        Erlauben Sie Leerzeilen als Trennzeichen zwischen den Zahlen. Beispiel: \texttt{"1$\backslash$n2,3"} ergibt 6.
+    }
+
+    \aufgabe{
+        Erlauben Sie unterschiedliche Trennzeichen. Folgender Syntax ändert das Trennzeichen: \texttt{"//[delimiter]$\backslash$n[numbers…]"}. Beispiel: \texttt{"//;$\backslash$n1;2"} ändert das Trennzeichen zu einem Semikolon und gibt 3 zurück. Dabei ist die erste Zeile optional, alle anderen Szenarien sollen weiterhin unterstützt werden.
+    }
+
+    \aufgabe{
+        Wird die Methode mit einem negativen Parameter aufgerufen, soll eine Ausnahme ausgelöst und folgenden Text ausgegeben werden: "Negative Werte sind nicht erlaubt", der negative Wert soll ebenfalls mit ausgegeben werden. Werden mehrere negative Parameter übergeben, sollen alle negativen Werte in der Ausnahme-Meldung angezeigt werden.
+    }
+
+    \aufgabe{
+        Zahlen, größer als 1000 sollen ignoriert werden. Beispiel: $1001 + 2 = 2$.
+    }
+
+\end{document}
